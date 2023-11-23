@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.87em;
+}
+
+body {
+  background-image: url(../bgraster.jpg);
+  background-size: 60%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.nav-link:hover {
+  /* background-color: #64748b; */
+}
+
+.word-space {
+  /* letter-spacing: 3px; */
+}
+
+
+#sidebar {
+  position: fixed;
+  width: 16em;
+  padding: 0px 20px 20px 20px;
+  background-color: #2f4257 !important;
+}
+
+.sidebar-inside-box {
+  border-radius: 0.5em;
+  padding: 20px;
+  background-color: #5d7793 !important;
+}

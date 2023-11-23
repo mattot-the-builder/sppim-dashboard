@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en" class="w-100 overflow-x-hidden" x-data="{
+  
+  menuGroup: [
+  {
+      groupLabel: 'ADMIN',
+      menuItems: [
+        { label: 'Konfigurasi' },
+        { label: 'Carian Pengguna' },
+        { label: 'Pengguna Aktif' },
+        { label: 'Pengumuman' },
+        { label: 'Galeri', icon: 'image' },
+        { label: 'Kaji Selidik', icon: 'image' },
+      ],
+    },
+    {
+      groupLabel: 'PRA PERKAHWINAN',
+      menuItems: [
+        { label: 'Tajuk Kursus' },
+        { label: 'Penceramah Kursus' },
+        { label: 'Penganjur Kursus' },
+        { label: 'Tempat Kursus' },
+        { label: 'Jadual Kursus' },
+        { label: 'Carian Peserta' },
+      ],
+    },
+    {
+      groupLabel: 'PERMOHONAN NCR ONLINE',
+      menuItems: [
+        { label: 'Kebenaran Berkahwin Online' },
+        { label: 'Nikah Online' },
+        { label: 'Cerai Online' },
+        { label: 'Rujuk Online' },
+      ],
+    },
+    {
+      groupLabel: 'PERMOHONAN NCR',
+      menuItems: [
+        { label: 'Senarai Kerja' },
+        { label: 'Kebenaran Berkahwin' },
+        { label: 'Pra Daftar Nikah' },
+        { label: 'Nikah' },
+        { label: 'Cerai' },
+        { label: 'Rujuk' },
+        { label: 'NCR Backlog', subMenu: ['Carian', 'NBC'] },
+        { label: 'Hapus Permohonan' },
+        { label: 'Cetakan Kad Nikah' },
+        { label: 'Cetakan Daftar NCR' },
+        { label: 'Sejarah NCR' },
+      ],
+    },
+    {
+      groupLabel: 'NCR LUAR NEGARA',
+      menuItems: [
+        { label: 'Senarai Kerja' },
+        { label: 'Carian' },
+        { label: 'Senarai Luar Negara' },
+      ],
+    },
+    {
+      groupLabel: 'KHIDMAT NASIHAT',
+      menuItems: [
+        { label: 'Aduan' },
+        { label: 'Carian' },
+        { label: 'Perunding' },
+        { label: 'Aduan Online' },
+        { label: 'Jawatan Kuasa Pendamai' },
+      ],
+    },
+  ],
+  }">
+
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+
+  <body>
+    <aside
+      class="bg-primary h-100 overflow-y-scroll"
+      id="sidebar"
+      style="background-color: #2f4257"
+    >
+      <div style="width: 100px" class="mx-auto">
+        <img src="./sppim.svg" class="img-fluid" alt="" />
+      </div>
+      <ul class="sidebar-inside-box text-white">
+        <li class="mt-2">
+          <a
+            class="nav-link d-flex gap-2 justify-content-center align-items-center"
+            href="#"
+            style="letter-spacing: 2px"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="mr-4"
+              style="width: 24"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            PROFIL SAYA
+          </a>
+        </li>
+        <li class="mt-2">
+          <a
+            class="nav-link d-flex gap-2 justify-content-center align-items-center"
+            href="#"
+            style="letter-spacing: 2px"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              style="width: 24"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            DASHBOARD
+          </a>
+        </li>
+      </ul>
+
+      <ul class="p-0 mt-4 text-white">
+        <li>
+          <a
+            class="nav-link d-flex gap-2 justify-content-start align-items-center word-space my-2"
+            href="#"
+            data-bs-toggle="collapse"
+            data-bs-target="#adminMenu"
+            role="button"
+            aria-expanded="false"
+            aria-controls="adminMenu"
+          >
+            <i class="fa-solid fa-gear fa-xl" style="color: #ffffff;"></i>
+            ADMIN
+          </a>
+
+          <ul class="collapse text-black bg-white p-1 rounded" id="adminMenu">
+            <template x-for="menu in menuGroup[0].menuItems"
+            <li class="mb-0">
+              <a
+                href="#"
+                class="nav-link d-flex justify-content-between align-items-center"
+              >
+                  <div>
+                    - <span x-text="menu.label"></span>
+                  </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  style="width: 12"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+            </template>
+          </ul>
+        </li>
+
+        <li>
+          <a
+            class="nav-link d-flex gap-2 justify-content-start align-items-center word-space my-2"
+            href="#"
+            data-bs-toggle="collapse"
+            data-bs-target="#praPerkahwinanMenu"
+            role="button"
+            aria-expanded="false"
+            aria-controls="praPerkahwinanMenu"
+          >
+            <i class="fa-solid fa-ring fa-xl" style="color: #ffffff;"></i>
+            PRA PERKAHWINAN</a
+          >
+
+          <ul class="collapse text-black bg-white p-1 rounded" id="praPerkahwinanMenu">
+            <template x-for="menu in menuGroup[1].menuItems"
+            <li class="mb-0">
+              <a
+                href="#"
+                class="nav-link d-flex justify-content-between align-items-center"
+              >
+                  <div>
+                    - <span x-text="menu.label"></span>
+                  </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  style="width: 12"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+            </template>
+          </ul>
+        </li>
+        <li>
+          <a
+            class="nav-link d-flex gap-2 justify-content-start align-items-center word-space my-2"
+            href="#"
+            data-bs-toggle="collapse"
+            data-bs-target="#ncrOnlineMenu"
+            role="button"
+            aria-expanded="false"
+            aria-controls="ncrOnlineMenu"
+          >
+<i class="fa-solid fa-plug fa-xl" style="color: #ffffff;"></i>
+            PERMOHONAN NCR ONLINE</a
+          >
+
+          <ul class="collapse text-black bg-white p-1 rounded" id="ncrOnlineMenu">
+            <template x-for="menu in menuGroup[2].menuItems"
+            <li class="mb-0">
+              <a
+                href="#"
+                class="nav-link d-flex justify-content-between align-items-center"
+              >
+                  <div>
+                    - <span x-text="menu.label"></span>
+                  </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  style="width: 12"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+            </template>
+          </ul>
+        </li>
+
+        <li>
+          <a
+            class="nav-link d-flex gap-2 justify-content-start align-items-center word-space my-2"
+            href="#"
+            data-bs-toggle="collapse"
+            data-bs-target="#ncrMenu"
+            role="button"
+            aria-expanded="false"
+            aria-controls="ncrMenu"
+          >
+<i class="fa-solid fa-mosque fa-xl" style="color: #ffffff;"></i>
+            PERMOHONAN NCR</a
+          >
+
+          <ul class="collapse text-black bg-white p-1 rounded" id="ncrMenu">
+            <template x-for="menu in menuGroup[3].menuItems"
+            <li class="mb-0">
+              <a
+                href="#"
+                class="nav-link d-flex justify-content-between align-items-center"
+              >
+                  <div>
+                    - <span x-text="menu.label"></span>
+                  </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  style="width: 12"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+            </template>
+          </ul>
+        </li>
+
+        <li>
+          <a
+            class="nav-link d-flex gap-2 justify-content-start align-items-center word-space my-2"
+            href="#"
+            data-bs-toggle="collapse"
+            data-bs-target="#ncrLuarNegaraMenu"
+            role="button"
+            aria-expanded="false"
+            aria-controls="ncrLuarNegaraMenu"
+          >
+            <i class="fa-solid fa-earth-asia fa-xl" style="color: #ffffff;"></i>
+            NCR LUAR NEGARA</a
+          >
+
+          <ul class="collapse text-black bg-white p-1 rounded" id="ncrLuarNegaraMenu">
+            <template x-for="menu in menuGroup[4].menuItems"
+            <li class="mb-0">
+              <a
+                href="#"
+                class="nav-link d-flex justify-content-between align-items-center"
+              >
+                  <div>
+                    - <span x-text="menu.label"></span>
+                  </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  style="width: 12"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+            </template>
+          </ul>
+        </li>
+        <li>
+          <a
+            class="nav-link d-flex gap-2 justify-content-start align-items-center word-space my-2"
+            href="#"
+            data-bs-toggle="collapse"
+            data-bs-target="#khidmatNasihatMenu"
+            role="button"
+            aria-expanded="false"
+            aria-controls="khidmatNasihatMenu"
+          >
+<i class="fa-solid fa-comments fa-xl" style="color: #ffffff;"></i>
+            KHIDMAT NASIHAT</a
+          >
+
+          <ul class="collapse text-black bg-white p-1 rounded" id="khidmatNasihatMenu">
+            <template x-for="menu in menuGroup[5].menuItems"
+            <li class="mb-0">
+              <a
+                href="#"
+                class="nav-link d-flex justify-content-between align-items-center"
+              >
+                  <div>
+                    - <span x-text="menu.label"></span>
+                  </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  style="width: 12"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+            </template>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+
+    <div
+      class="bg-white px-4 shadow-sm d-flex justify-content-between align-items-center"
+      style="margin-left: 16em; height: 4em"
+    >
+      <div class="d-flex gap-5">
+        <a href="#" class="nav-link fs-6">DASHBOARD</a>
+        <a href="#" class="nav-link fs-6">APLIKASI DALAMAN</a>
+      </div>
+      <div class="d-flex gap-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style="width: 70"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z"
+            clip-rule="evenodd"
+          />
+        </svg>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style=""
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4.848 2.771A49.144 49.144 0 0112 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97a48.901 48.901 0 01-3.476.383.39.39 0 00-.297.17l-2.755 4.133a.75.75 0 01-1.248 0l-2.755-4.133a.39.39 0 00-.297-.17 48.9 48.9 0 01-3.476-.384c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.68 3.348-3.97zM6.75 8.25a.75.75 0 01.75-.75h9a.75.75 0 010 1.5h-9a.75.75 0 01-.75-.75zm.75 2.25a.75.75 0 000 1.5H12a.75.75 0 000-1.5H7.5z"
+            clip-rule="evenodd"
+          />
+        </svg>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style=""
+        >
+          <path
+            fill-rule="evenodd"
+            d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <main class="p-4" style="margin-left: 16em">
+      <div class="bg-white p-4 rounded shadow">
+        <h1 class="fs-3">Master</h1>
+        <div class="d-flex align-items-center justify-content-start gap-1">
+          <a href="#" class="link">Dashboard </a>
+          <span>
+            <i class="fa-solid fa-angles-right fa-xl"></i>
+          </span>
+          <a href="#" class="link">Master </a>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
